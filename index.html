@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -50,35 +39,39 @@
 </div>
 
 <script>
-// 50+ персонажей для каждой темы
+// 50+ персонажей для каждой темы (на русском)
 const themes = {
   football: [
-    "Messi","Ronaldo","Neymar","Mbappe","Lewandowski","Salah","Kane","De Bruyne","Modric","Hazard",
-    "Kimmich","Van Dijk","Mane","Griezmann","Aubameyang","Sterling","Son","Haaland","Benzema","Verratti",
-    "Casemiro","Alisson","Ederson","Ramos","Pique","Thiago Silva","Buffon","Courtois","Foden","Grealish",
-    "Sancho","Jorginho","Muller","Kante","Pogba","Dybala","Rashford","Rodri","David Silva","Walker",
-    "Trippier","Maguire","De Gea","Berardi","Insigne","Chiesa","Havertz","Gnabry","Sane","Tadic"
+    "Месси","Роналду","Неймар","Мбаппе","Левандовский","Салах","Кейн","Де Брюйне","Модрич","Хазард",
+    "Киммих","Ван Дейк","Мане","Гризманн","Обамеянг","Стерлинг","Сон","Хааланд","Бензема","Верратти",
+    "Каземиро","Алисон","Эдерсон","Рамос","Пике","Тьяго Силва","Буффон","Куртуа","Фоден","Грилиш",
+    "Санчо","Жоржиньо","Мюллер","Канте","Погба","Дибала","Рашфорд","Родри","Давид Силва","Уокер",
+    "Триппьер","Магуайр","Де Хеа","Берарди","Инсинье","Кьеза","Хаверц","Гнабри","Сане","Тадич",
+    "Кака","Роналдиньо","Роналдо","Шевченко","Тотти","Зидан","Бэйл","Иньеста","Пирло","Рибери",
+    "Руни","Тевес","Мертезакер","Каннаваро","Роббен","Фабиан","Фабрегас","Пике","Марез","Канте2"
   ],
   brawl: [
-    "Shelly","Colt","Jessie","Nita","Spike","Leon","Crow","Poco","Barley","Brock",
-    "Dynamike","El Primo","Bo","Tick","Mortis","Carl","Rosa","Pam","Frank","Bibi",
-    "Bea","Max","Jacky","Gene","Sandy","Emz","Mr. P","Sprout","Byron","Edgar",
-    "Griff","Bonnie","Colette","Buzz","Stu","Belle","Lou","Janet","Meg","Rico",
-    "Buster","Amber","Fang","Sam","Tara","Pamela","Gale","Colt2","Jack","Buzz2"
+    "Шелли","Колт","Джесси","Нита","Спайк","Леон","Ворон","Поко","Барли","Брок",
+    "Динамайк","Эль Примо","Бо","Тик","Мортис","Карл","Роза","Пэм","Фрэнк","Биби",
+    "Беа","Макс","Джеки","Джин","Сэнди","Эмз","Мистер П","Спрaут","Байрон","Эдгар",
+    "Грифф","Бонни","Колетт","Базз","Стю","Белл","Лу","Жанет","Мег","Рико",
+    "Бастер","Эмбер","Фэнг","Сэм","Тара","Памела","Гейл","Колт2","Джек","Базз2",
+    "Спайк2","Леон2","Ворон2","Поко2","Барли2","Брок2","Динамайк2","Эль Примо2","Бо2","Тик2"
   ],
   clash: [
-    "Knight","Archer","Giant","Wizard","Baby Dragon","Hog Rider","Valkyrie","P.E.K.K.A","Miner","Goblin",
-    "Fireball","Ice Spirit","Skeletons","Musketeer","Cannon","Tesla","Barbarians","Balloon","Lumberjack","Electro Wizard",
-    "Dark Prince","Ice Wizard","Princess","Mega Minion","Royal Ghost","Hunter","Ram Rider","Zappies","Goblin Barrel","Flying Machine",
-    "Elite Barbarians","Battle Ram","Three Musketeers","Furnace","Bomb Tower","Giant Skeleton","Inferno Dragon","Night Witch","Mini P.E.K.K.A","Rocket",
-    "Mirror","Clone","Heal Spirit","Fire Spirits","Ice Golem","Cannon Cart","Flying Machine2","Goblin Cage","Sparky","Mega Knight"
+    "Рыцарь","Лучница","Гигант","Волшебник","Малыш Дракон","Хог Рейдер","Валькирия","ПЕКА","Шахтёр","Гоблин",
+    "Огненный шар","Ледяной дух","Скелеты","Мушкетёр","Пушка","Тесла","Барабаны","Воздушный шар","Дровосек","Электро волшебник",
+    "Тёмный принц","Ледяной волшебник","Принцесса","Мега Миньон","Королевский призрак","Охотник","Баран Рейдер","Заппиз","Гоблин Баррель","Летающая машина",
+    "Элитные варвары","Боевая барабанная команда","Три мушкетёра","Печь","Бомбовая башня","Гигант Скелет","Инферно Дракон","Ночная ведьма","Мини ПЕКА","Ракета",
+    "Зеркало","Клон","Целительный дух","Огненные духи","Ледяной голем","Пушка-карета","Летающая машина2","Гоблин Кейс","Искра","Мега Рыцарь",
+    "Королевский гигант","Ледяной принц","Гоблин Бочка","Огненный дракон","Скелетный дракон","Мушкетёр2","Валькирия2","Мега миньон2","Рыцарь2","Арбалетчик"
   ],
   actors: [
-    "Tom Hanks","Leonardo DiCaprio","Brad Pitt","Johnny Depp","Robert Downey Jr","Will Smith","Matt Damon","Chris Hemsworth","Chris Evans","Denzel Washington",
-    "Morgan Freeman","Hugh Jackman","Keanu Reeves","Christian Bale","Joaquin Phoenix","Mark Wahlberg","Ryan Reynolds","Tom Cruise","Russell Crowe","Samuel L Jackson",
-    "Ian McKellen","Patrick Stewart","Daniel Radcliffe","Emma Watson","Scarlett Johansson","Natalie Portman","Angelina Jolie","Jennifer Lawrence","Anne Hathaway","Gal Gadot",
-    "Robert Pattinson","Chris Pratt","Zoe Saldana","Vin Diesel","Jason Momoa","Emma Stone","Ryan Gosling","Margot Robbie","Harrison Ford","Cate Blanchett",
-    "Matt LeBlanc","Matthew Perry","Courteney Cox","Jennifer Aniston","Lisa Kudrow","David Schwimmer","Tom Holland","Zendaya","Dwayne Johnson","Vin Diesel2"
+    "Том Хэнкс","Леонардо ДиКаприо","Брэд Питт","Джонни Депп","Роберт Дауни младший","Уилл Смит","Мэтт Дэймон","Крис Хемсворт","Крис Эванс","Дензел Вашингтон",
+    "Морган Фриман","Хью Джекман","Киану Ривз","Кристиан Бэйл","Хоакин Феникс","Марк Уолберг","Райан Рейнольдс","Том Круз","Рассел Кроу","Сэмюэл Л. Джексон",
+    "Иэн МакКеллен","Патрик Стюарт","Дэниел Рэдклифф","Эмма Уотсон","Скарлетт Йоханссон","Натали Портман","Анджелина Джоли","Дженнифер Лоуренс","Энн Хэтэуэй","Галь Гадот",
+    "Роберт Паттинсон","Крис Пратт","Зои Салдана","Вин Дизель","Джейсон Момоа","Эмма Стоун","Райан Гослинг","Марго Робби","Харрисон Форд","Кейт Бланшетт",
+    "Мэтт Леблан","Мэттью Перри","Кортни Кокс","Дженнифер Энистон","Лиза Кудроу","Дэвид Швиммер","Том Холланд","Зендея","Дуэйн Джонсон","Вин Дизель2"
   ]
 };
 
@@ -93,7 +86,7 @@ function startGame() {
 
   roles = [];
 
-  // выбираем одинаковую роль для всех кроме шпиона
+  // одинаковая роль для всех кроме шпиона
   const mainRole = pool[Math.floor(Math.random() * pool.length)];
 
   for (let i = 0; i < totalPlayers - 1; i++) {
@@ -138,15 +131,9 @@ function nextPlayer() {
 }
 
 function endGame() {
-  alert("Игра завершена! 🕵️");
   location.reload();
 }
 </script>
 
 </body>
-</html>
-    <script  src="./script.js"></script>
-
-  </body>
-  
 </html>
