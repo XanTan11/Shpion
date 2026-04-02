@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Шпион</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>🕵️ Шпион</h1>
+
+<div id="setup">
+  <p>Количество игроков:</p>
+  <input type="number" id="players" value="5" min="3" max="20">
+
+  <p>Выберите тему:</p>
+  <select id="theme">
+    <option value="football">Футбол ⚽</option>
+    <option value="brawl">Brawl Stars 🌟</option>
+    <option value="clash">Clash Royale 🏰</option>
+    <option value="actors">Актёры 🎭</option>
+  </select>
+
+  <button onclick="startGame()">Начать игру</button>
+</div>
+
+<div id="game" class="hidden">
+  <h2 id="playerText"></h2>
+  <button onclick="showRole()">Показать роль</button>
+
+  <h1 id="role" class="hidden"></h1>
+
+  <button onclick="nextPlayer()" class="hidden" id="nextBtn">Следующий</button>
+  <button onclick="endGame()" class="hidden" id="endBtn">Завершить игру</button>
+</div>
+
+</div>
+
+<script>
+// 50+ персонажей для каждой темы
+const themes = {
+  football: [
+    "Messi","Ronaldo","Neymar","Mbappe","Lewandowski","Salah","Kane","De Bruyne","Modric","Hazard",
+    "Kimmich","Van Dijk","Mane","Griezmann","Aubameyang","Sterling","Son","Haaland","Benzema","Verratti",
+    "Casemiro","Alisson","Ederson","Ramos","Pique","Thiago Silva","Buffon","Courtois","Foden","Grealish",
+    "Sancho","Jorginho","Muller","Kante","Pogba","Dybala","Rashford","Rodri","David Silva","Walker",
+    "Trippier","Maguire","De Gea","Berardi","Insigne","Chiesa","Havertz","Gnabry","Sane","Tadic"
+  ],
+  brawl: [
+    "Shelly","Colt","Jessie","Nita","Spike","Leon","Crow","Poco","Barley","Brock",
+    "Dynamike","El Primo","Bo","Tick","Mortis","Carl","Rosa","Pam","Frank","Bibi",
+    "Bea","Max","Jacky","Gene","Sandy","Emz","Mr. P","Sprout","Byron","Edgar",
+    "Griff","Bonnie","Colette","Buzz","Stu","Belle","Lou","Janet","Meg","Rico",
+    "Buster","Amber","Fang","Sam","Tara","Pamela","Gale","Colt2","Jack","Buzz2"
+  ],
+  clash: [
+    "Knight","Archer","Giant","Wizard","Baby Dragon","Hog Rider","Valkyrie","P.E.K.K.A","Miner","Goblin",
+    "Fireball","Ice Spirit","Skeletons","Musketeer","Cannon","Tesla","Barbarians","Balloon","Lumberjack","Electro Wizard",
+    "Dark Prince","Ice Wizard","Princess","Mega Minion","Royal Ghost","Hunter","Ram Rider","Zappies","Goblin Barrel","Flying Machine",
+    "Elite Barbarians","Battle Ram","Three Musketeers","Furnace","Bomb Tower","Giant Skeleton","Inferno Dragon","Night Witch","Mini P.E.K.K.A","Rocket",
+    "Mirror","Clone","Heal Spirit","Fire Spirits","Ice Golem","Cannon Cart","Flying Machine2","Goblin Cage","Sparky","Mega Knight"
+  ],
+  actors: [
+    "Tom Hanks","Leonardo DiCaprio","Brad Pitt","Johnny Depp","Robert Downey Jr","Will Smith","Matt Damon","Chris Hemsworth","Chris Evans","Denzel Washington",
+    "Morgan Freeman","Hugh Jackman","Keanu Reeves","Christian Bale","Joaquin Phoenix","Mark Wahlberg","Ryan Reynolds","Tom Cruise","Russell Crowe","Samuel L Jackson",
+    "Ian McKellen","Patrick Stewart","Daniel Radcliffe","Emma Watson","Scarlett Johansson","Natalie Portman","Angelina Jolie","Jennifer Lawrence","Anne Hathaway","Gal Gadot",
+    "Robert Pattinson","Chris Pratt","Zoe Saldana","Vin Diesel","Jason Momoa","Emma Stone","Ryan Gosling","Margot Robbie","Harrison Ford","Cate Blanchett",
+    "Matt LeBlanc","Matthew Perry","Courteney Cox","Jennifer Aniston","Lisa Kudrow","David Schwimmer","Tom Holland","Zendaya","Dwayne Johnson","Vin Diesel2"
+  ]
+};
+
+let roles = [];
+let currentPlayer = 0;
+let totalPlayers = 0;
+
+function startGame() {
+  totalPlayers = parseInt(document.getElementById("players").value);
+  const selectedTheme = document.getElementById("theme").value;
+  const pool = themes[selectedTheme];
+
+  roles = [];
+
+  // выбираем одинаковую роль для всех кроме шпиона
+  const mainRole = pool[Math.floor(Math.random() * pool.length)];
+
+  for (let i = 0; i < totalPlayers - 1; i++) {
+    roles.push(mainRole);
+  }
+
+  roles.push("🕵️ ШПИОН");
+  roles.sort(() => Math.random() - 0.5);
+
+  currentPlayer = 0;
+
+  document.getElementById("setup").classList.add("hidden");
+  document.getElementById("game").classList.remove("hidden");
+  document.getElementById("endBtn").classList.remove("hidden");
+
+  updatePlayer();
+}
+
+function updatePlayer() {
+  document.getElementById("playerText").innerText = "Игрок " + (currentPlayer + 1);
+  document.getElementById("role").classList.add("hidden");
+  document.getElementById("nextBtn").classList.add("hidden");
+}
+
+function showRole() {
+  document.getElementById("role").innerText = roles[currentPlayer];
+  document.getElementById("role").classList.remove("hidden");
+  document.getElementById("nextBtn").classList.remove("hidden");
+}
+
+function nextPlayer() {
+  currentPlayer++;
+
+  if (currentPlayer >= totalPlayers) {
+    document.getElementById("playerText").innerText = "Игра началась!";
+    document.getElementById("role").innerText = "Обсуждайте 😈";
+    document.getElementById("nextBtn").style.display = "none";
+    return;
+  }
+
+  updatePlayer();
+}
+
+function endGame() {
+  alert("Игра завершена! 🕵️");
+  location.reload();
+}
+</script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
